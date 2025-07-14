@@ -2,220 +2,303 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta
-      http-equiv="X-UA-Compatible"
-      content="IE=edge"
-    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Security Check</title>
-    <meta
-      name="theme-color"
-      content="#1c19a4"
-    />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
+    <meta name="theme-color" content="#c19aa4" />
     <link
-      rel="preconnect"
-      href="https://fonts.googleapis.com"
+      href="https://your-domain.com/favicon.png"
+      rel="icon"
+      type="image/x-icon"
     />
-    <link
-      rel="preconnect"
-      href="https://fonts.gstatic.com"
-      crossorigin
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <style>
-      @font-face {
-        font-family: Mulish;
-        font-style: italic;
-        font-weight: 200;
-        font-display: swap;
-        src: url(data:font/woff2;base64,d09GMgABAAAAAKEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA);
-      }
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
       * {
         box-sizing: border-box;
         margin: 0;
         padding: 0;
       }
+
       body {
         background: #1d1d1d;
         min-height: 100vh;
-        font-family: Mulish, sans-serif;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
         display: flex;
         align-items: center;
         justify-content: center;
+        color: #e0e0e0;
       }
-      .container {
-        background: #2d2d2d;
-        border-radius: 12px;
-        padding: 40px;
-        max-width: 500px;
+
+      main {
+        max-width: 600px;
         width: 90%;
         text-align: center;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       }
+
+      .top {
+        background: #2a2a2a;
+        border-radius: 12px;
+        padding: 60px 40px 40px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        border: 1px solid #3a3a3a;
+      }
+
+      .rig {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
       .logo {
         width: 80px;
         height: 80px;
-        margin: 0 auto 30px;
-        background: #4a90e2;
+        background: linear-gradient(135deg, #c19aa4, #a67c87);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 36px;
-        color: white;
-        font-weight: bold;
-      }
-      h1 {
-        color: #e0e0e0;
-        font-size: 28px;
-        margin-bottom: 10px;
-        font-weight: 600;
-      }
-      .highlight {
-        color: #ff6b6b;
-      }
-      h2 {
-        color: #b0b0b0;
-        font-size: 18px;
-        margin-bottom: 30px;
-        font-weight: 400;
-      }
-      .challenge-container {
-        background: #3a3a3a;
-        border-radius: 8px;
-        padding: 20px;
         margin-bottom: 20px;
+        box-shadow: 0 4px 16px rgba(193, 154, 164, 0.3);
       }
-      .challenge-text {
-        color: #e0e0e0;
-        margin-bottom: 15px;
+
+      h1 {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        line-height: 1.2;
       }
-      .verification-box {
+
+      .pink {
+        color: #c19aa4;
+      }
+
+      h2 {
+        font-size: 18px;
+        color: #b0b0b0;
+        font-weight: 400;
+        margin-bottom: 30px;
+        line-height: 1.4;
+      }
+
+      .main-wrapper {
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .main-content {
+        background: #333;
+        border-radius: 8px;
+        padding: 30px;
+        border: 1px solid #444;
+      }
+
+      .challenge-container {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 15px;
-        background: #4a4a4a;
+        gap: 15px;
+        padding: 20px;
+        background: #404040;
         border-radius: 6px;
         cursor: pointer;
-        transition: background 0.3s ease;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
       }
-      .verification-box:hover {
-        background: #5a5a5a;
+
+      .challenge-container:hover {
+        background: #4a4a4a;
+        border-color: #c19aa4;
       }
+
       .checkbox {
-        width: 20px;
-        height: 20px;
+        width: 24px;
+        height: 24px;
         border: 2px solid #888;
-        border-radius: 3px;
+        border-radius: 4px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: white;
+        transition: all 0.3s ease;
       }
+
       .checkbox.checked {
-        background: #4a90e2;
-        border-color: #4a90e2;
+        background: #c19aa4;
+        border-color: #c19aa4;
       }
+
       .checkbox.checked::after {
         content: "✓";
         color: white;
-        font-size: 14px;
-        font-weight: bold;
-      }
-      .verify-text {
-        color: #e0e0e0;
         font-size: 16px;
-      }
-      .cloudflare-logo {
-        font-size: 12px;
-        color: #4a90e2;
         font-weight: bold;
       }
-      .access-id {
-        color: #888;
-        font-size: 14px;
-        margin-top: 20px;
+
+      .verify-text {
+        font-size: 16px;
+        color: #e0e0e0;
+        flex: 1;
+        text-align: left;
       }
-      .access-id .id {
-        color: #4a90e2;
-        font-family: monospace;
+
+      .provider-logo {
+        font-size: 12px;
+        color: #c19aa4;
+        font-weight: 600;
+        letter-spacing: 0.5px;
       }
+
       .loading {
         display: none;
-        color: #4a90e2;
-        margin-top: 10px;
+        margin-top: 15px;
+        color: #c19aa4;
+        font-size: 14px;
       }
+
       .spinner {
         display: inline-block;
         width: 16px;
         height: 16px;
-        border: 2px solid #4a90e2;
+        border: 2px solid #c19aa4;
         border-radius: 50%;
         border-top-color: transparent;
         animation: spin 1s linear infinite;
         margin-right: 8px;
       }
+
       @keyframes spin {
         to {
           transform: rotate(360deg);
         }
       }
+
+      .bottom {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .util {
+        font-size: 14px;
+        color: #888;
+      }
+
+      .info {
+        color: #c19aa4;
+        font-family: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono",
+          Consolas, "Courier New", monospace;
+        font-weight: 500;
+      }
+
+      noscript .h2 {
+        color: #ff6b6b;
+        font-size: 16px;
+        padding: 20px;
+        background: #2a1f1f;
+        border-radius: 6px;
+        border-left: 4px solid #ff6b6b;
+      }
+
+      @media (max-width: 600px) {
+        .top {
+          padding: 40px 20px 30px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        h2 {
+          font-size: 16px;
+        }
+
+        .main-content {
+          padding: 20px;
+        }
+      }
     </style>
-    <meta
-      http-equiv="refresh"
-      content="360"
-    />
+    <meta http-equiv="refresh" content="360" />
   </head>
   <body>
-    <div class="container">
-      <div class="logo">🛡️</div>
-      <h1>
-        <span class="highlight">Security</span> verification required
-      </h1>
-      <h2>Complete the verification below to access the requested content.</h2>
-      
-      <div class="challenge-container">
-        <div class="challenge-text">
-          <strong>Verify you are human</strong>
-        </div>
-        <div class="verification-box" onclick="handleVerification()">
-          <div class="checkbox" id="checkbox"></div>
-          <span class="verify-text">I'm not a robot</span>
-          <div class="cloudflare-logo">CLOUDFLARE</div>
-        </div>
-        <div class="loading" id="loading">
-          <div class="spinner"></div>
-          Verifying...
+    <main>
+      <div class="top">
+        <div class="rig">
+          <div class="logo">🛡️</div>
+          <h1><span class="pink">Security</span> challenges you!</h1>
+          <h2>
+            Solve the challenge below to be redirected to the requested content.
+          </h2>
+          <div class="main-wrapper" role="main">
+            <div class="main-content">
+              <noscript>
+                <div class="h2">
+                  <span id="challenge-error-text">
+                    Enable JavaScript and cookies to continue
+                  </span>
+                </div>
+              </noscript>
+              <div class="challenge-container" onclick="handleVerification()">
+                <div class="checkbox" id="checkbox"></div>
+                <span class="verify-text">Verify you are human</span>
+                <div class="provider-logo">CLOUDFLARE</div>
+              </div>
+              <div class="loading" id="loading">
+                <div class="spinner"></div>
+                Verifying your browser...
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
-      <div class="access-id">
-        Your access ID is <span class="id">95f1b1dc-ee9f-e6b1</span>
+      <div class="bottom">
+        <span class="util">
+          Your access ID is <span class="info">95f1ce38b84929a1</span>
+        </span>
       </div>
-    </div>
+    </main>
 
     <script>
+      let isVerifying = false;
+
       function handleVerification() {
-        const checkbox = document.getElementById('checkbox');
-        const loading = document.getElementById('loading');
-        const verificationBox = document.querySelector('.verification-box');
-        
-        if (!checkbox.classList.contains('checked')) {
-          checkbox.classList.add('checked');
-          loading.style.display = 'block';
-          verificationBox.style.pointerEvents = 'none';
-          
+        if (isVerifying) return;
+
+        const checkbox = document.getElementById("checkbox");
+        const loading = document.getElementById("loading");
+        const container = document.querySelector(".challenge-container");
+
+        if (!checkbox.classList.contains("checked")) {
+          isVerifying = true;
+          checkbox.classList.add("checked");
+          loading.style.display = "block";
+          container.style.pointerEvents = "none";
+          container.style.opacity = "0.7";
+
           // Simulate verification process
           setTimeout(() => {
-            // Redirect or show success message
-            window.location.reload();
+            // In a real implementation, this would redirect to the original URL
+            // or show a success message
+            loading.innerHTML =
+              '<div class="spinner"></div>Verification successful! Redirecting...';
+
+            setTimeout(() => {
+              // Replace with actual redirect logic
+              window.location.reload();
+            }, 1500);
           }, 2000);
         }
       }
+
+      // Simulate some browser checking on load
+      window.addEventListener("load", function () {
+        // Add any initialization logic here
+        console.log("Security check page loaded");
+      });
     </script>
   </body>
 </html>
